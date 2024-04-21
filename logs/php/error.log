@@ -1,0 +1,4 @@
+[08-Mar-2024 01:09:02 UTC] PHP Warning:  Attempt to read property "title" on null in C:\Users\miaqu\Local Sites\mias-personal-site\app\public\wp-includes\class-wp-customize-widgets.php on line 905
+[08-Mar-2024 22:50:08 UTC] PHP Warning:  Attempt to read property "title" on null in C:\Users\miaqu\Local Sites\mias-personal-site\app\public\wp-includes\class-wp-customize-widgets.php on line 905
+[10-Mar-2024 03:03:04 UTC] PHP Warning:  Attempt to read property "title" on null in C:\Users\miaqu\Local Sites\mias-personal-site\app\public\wp-includes\class-wp-customize-widgets.php on line 905
+[10-Mar-2024 14:48:07 UTC] PHP Warning:  file_put_contents(http://mias-personal-site.local/wp-content/uploads/2024/03/curlynoods-c-150x150.jpg): Failed to open stream: HTTP wrapper does not support writeable connections in C:\Users\miaqu\Local Sites\mias-personal-site\app\public\wp-includes\class-wp-image-editor-imagick.php on line 860

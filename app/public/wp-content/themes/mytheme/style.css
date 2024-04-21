@@ -1,0 +1,77 @@
+/*
+
+Theme Name: My Website Theme
+Author: Mia
+Description: This is my website theme.
+Version: 0
+
+*/
+* {
+    padding: 10px;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #891652;
+    margin: 0;
+}
+
+footer {
+ background-color: #240A34;
+ color: #f5f5f5;
+ margin: 0%;
+}
+
+footer h1 {
+    font-weight: 200;
+    margin-left: 20px;
+    padding: 0px;
+    padding-top: 20px;
+    font-size: 30px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin: 0px;
+    padding: 5px;
+}
+
+#main-title {
+    color:#f5f5f5;
+}
+
+.btn-mine {
+    border: 1px solid #240A34;
+    color:#240A34
+}
+
+.btn-mine:hover {
+    background-color: #e6ddec;
+}
+
+#profile-picture {
+    border-radius: 50%;
+    width: 200px;
+}
+
+.subtitle {
+    margin-bottom: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: #9c742a;
+}
+
+/* #EABE6C */
+/* #240A34 */

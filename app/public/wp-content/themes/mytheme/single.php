@@ -1,0 +1,1 @@
+this is where php for a single post will go.  wordpress recognizes/looks for it.
