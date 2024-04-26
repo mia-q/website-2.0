@@ -251,7 +251,20 @@ areoi.blocks.registerBlockType( meta, {
                                             ] }
                                             onChange={ ( value ) => onChange( 'text_wrap', value ) }
                                         />
-                                    </areoi.components.PanelRow>                                    
+                                    </areoi.components.PanelRow> 
+
+                                    {
+                                        !areoi_vars['include_bootstrap_js'] &&
+
+                                        <areoi.components.PanelRow>
+                                            <areoi.components.ToggleControl 
+                                                label={ 'Link to Modal' }
+                                                help="Include relevant data tags for opening modals"
+                                                checked={ attributes.link_to_modal }
+                                                onChange={ ( value ) => onChange( 'link_to_modal', value ) }
+                                            />
+                                        </areoi.components.PanelRow>   
+                                    }                                
 
                                 </areoi.components.PanelBody>
 

@@ -3,6 +3,8 @@ function areoi_render_block_row( $attributes, $content )
 {
 	$is_grid = areoi2_get_option( 'areoi-customize-options-enable-cssgrid', false );
 
+	if ( !empty( $attributes['is_flex'] ) ) $is_grid = false;
+
 	if ( !$is_grid ) {
 		$class 			= 	trim( 
 			areoi_get_class_name_str( array( 

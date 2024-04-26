@@ -7,6 +7,7 @@
 	"description": "Modify columns with a handful of options for alignment, ordering, and offsetting thanks to our flexbox grid system.",
 	"textdomain": "default",
 	"keywords": [ "areoi", "bootstrap", "layout" ],
+	"usesContext": ["areoi/isFlex"],
 	"example": {
 		"attributes": {
 			"preview": true

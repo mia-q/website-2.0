@@ -21,6 +21,10 @@ function areoi_render_block_post_grid( $attributes, $content )
 	$pagination_color 	= !empty( $attributes['pagination_color'] ) ? $attributes['pagination_color'] : 'btn-primary';
 	$show_all 		= in_array( 'all', $post_ids );
 
+	if ( !in_array( $title_element, ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] ) ) {
+		$title_element = 'h3';
+	}
+
 	$background 	= include( AREOI__PLUGIN_DIR . '/blocks/_partials/background.php' );
 
 	$class 			= 	trim( 

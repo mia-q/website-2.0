@@ -73,9 +73,15 @@ foreach ( $block_folders as $block_folder ) {
 
 	if ( $exists ) {
 
+		$block_json = json_decode(file_get_contents(__DIR__ . '/' . $block_folder . '/block.json'), true);
+		if ( isset( $block_json['attributes']['is_flex'] ) ) {
+			$block_json['attributes']['is_flex']['default'] = ( areoi2_get_option( 'areoi-customize-options-force-flex', false ) ? true : false );
+		}
+
 		register_block_type_from_metadata(
 			__DIR__ . '/' . $block_folder,
 			array(
+				'attributes' => $block_json['attributes'],
 				'render_callback' => 'areoi_render_block_' . str_replace( '-', '_', $block_folder ),
 			)
 		);

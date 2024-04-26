@@ -28,7 +28,7 @@ areoi.blocks.registerBlockType( meta, {
 
         let classes = []
 
-        if ( !areoi_vars.is_grid ) {
+        if ( !areoi_vars.is_grid || attributes['is_flex'] ) {
             classes = [
                 'row',
                 attributes.vertical_align_xs,
@@ -79,7 +79,7 @@ areoi.blocks.registerBlockType( meta, {
                         <areoi.components.PanelBody title={ 'Settings (' + tab.title + ')' } initialOpen={ false }>                        
                             
                             {
-                                !areoi_vars.is_grid &&
+                                (!areoi_vars.is_grid || attributes['is_flex']) &&
                                 <>
                                 <areoi.components.PanelRow className="areoi-panel-row">
                                     <areoi.components.SelectControl
@@ -130,7 +130,7 @@ areoi.blocks.registerBlockType( meta, {
                             }
 
                             {
-                                areoi_vars.is_grid &&
+                                areoi_vars.is_grid && !attributes['is_flex'] &&
                                 <>
                                 <areoi.components.PanelRow>
                                     <areoi.components.SelectControl
@@ -231,6 +231,21 @@ areoi.blocks.registerBlockType( meta, {
 
                      <div { ...blockProps }>
                         <areoi.editor.InspectorControls key="setting">
+
+                            {
+                                areoi_vars.is_grid &&
+                                <areoi.components.PanelBody title={ 'Settings' } initialOpen={ false }>
+                                    <areoi.components.PanelRow>
+                                        <areoi.components.ToggleControl
+                                            label="Use Flex"
+                                            help="If checked the row will use default flexbox instead of CSS grid."
+                                            checked={ attributes.is_flex }
+                                            onChange={ ( value ) => onChange( 'is_flex', value ) }
+                                        />
+                                    </areoi.components.PanelRow>
+
+                                </areoi.components.PanelBody>
+                            }
 
                             { areoi.ResponsiveTabPanel( tabDevice, meta, props ) }
                                 

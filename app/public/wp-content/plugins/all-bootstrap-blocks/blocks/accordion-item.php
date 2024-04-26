@@ -37,7 +37,7 @@ function areoi_render_block_accordion_item( $attributes, $content )
 					type="button" 
 					data-bs-toggle="collapse" 
 					data-bs-target="#block-' . $attributes['block_id'] . '-collapse" 
-					aria-expanded="true" 
+					aria-expanded="' . ( empty( $attributes['open'] ) ? 'false' : 'true' ) . '" 
 					aria-controls="block-' . $attributes['block_id'] . '-collapse"
 				>
 					' . $attributes['title'] . '

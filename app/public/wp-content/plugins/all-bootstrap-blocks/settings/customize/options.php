@@ -103,8 +103,19 @@ return array(
 		'variable' => '$enable-cssgrid',
 		'row' => 'default',
 		'input' => 'checkbox',
-		'default' => '',
+		'default' => '0',
 		'description' => 'This will only work if you are using Bootstrap 5.1 or higher.',
+		'allow_reset' => true,
+		'options' => array()
+	),
+	array(
+		'label' => 'Use flex as default on grids',
+		'name' => $slug . 'force-flex',
+		'variable' => '$force-flex',
+		'row' => 'default',
+		'input' => 'checkbox',
+		'default' => '0',
+		'description' => 'If checked the is_flex attribute will automatically be set to true',
 		'allow_reset' => true,
 		'options' => array()
 	),

@@ -79,6 +79,38 @@ class AREOI_Styles
 			'display_units' => areoi2_get_option( 'areoi-dashboard-global-display-units', 'px' ),
 			'btn_styles'	=> areoi2_get_btn_styles(),
 			'is_grid'		=> areoi2_get_option( 'areoi-customize-options-enable-cssgrid', false ),
+			'include_bootstrap_js' => areoi2_get_option( 'areoi-dashboard-global-bootstrap-js', 1 ),
+			'block_excludes' => array(
+				'strip' => areoi2_get_option( 'areoi-dashboard-global-hide-strip-block', false ),
+				'container' => areoi2_get_option( 'areoi-dashboard-global-hide-container-block', false ),
+				'row' => areoi2_get_option( 'areoi-dashboard-global-hide-row-block', false ),
+				'column' => areoi2_get_option( 'areoi-dashboard-global-hide-column-block', false ),
+				'column-break' => areoi2_get_option( 'areoi-dashboard-global-hide-column-break-block', false ),
+				'accordion' => areoi2_get_option( 'areoi-dashboard-global-hide-accordion-block', false ),
+				'alert' => areoi2_get_option( 'areoi-dashboard-global-hide-alert-block', false ),
+				'breadcrumb' => areoi2_get_option( 'areoi-dashboard-global-hide-breadcrumb-block', false ),
+				'button' => areoi2_get_option( 'areoi-dashboard-global-hide-button-block', false ),
+				'button-group' => areoi2_get_option( 'areoi-dashboard-global-hide-button-group-block', false ),
+				'card' => areoi2_get_option( 'areoi-dashboard-global-hide-card-block', false ),
+				'card-group' => areoi2_get_option( 'areoi-dashboard-global-hide-card-group-block', false ),
+				'carousel' => areoi2_get_option( 'areoi-dashboard-global-hide-carousel-block', false ),
+				'collapse' => areoi2_get_option( 'areoi-dashboard-global-hide-collapse-block', false ),
+				'div' => areoi2_get_option( 'areoi-dashboard-global-hide-div-block', false ),
+				'list-group' => areoi2_get_option( 'areoi-dashboard-global-hide-list-group-block', false ),
+				'modal' => areoi2_get_option( 'areoi-dashboard-global-hide-modal-block', false ),
+				'tabs' => areoi2_get_option( 'areoi-dashboard-global-hide-tabs-block', false ),
+				'nav-and-tab' => areoi2_get_option( 'areoi-dashboard-global-hide-nav-and-tab-block', false ),
+				'offcanvas' => areoi2_get_option( 'areoi-dashboard-global-hide-offcanvas-block', false ),
+				'progress' => areoi2_get_option( 'areoi-dashboard-global-hide-progress-block', false ),
+				'spinner' => areoi2_get_option( 'areoi-dashboard-global-hide-spinner-block', false ),
+				'toast' => areoi2_get_option( 'areoi-dashboard-global-hide-toast-block', false ),
+				'icon' => areoi2_get_option( 'areoi-dashboard-global-hide-icon-block', false ),
+				'banner' => areoi2_get_option( 'areoi-dashboard-global-hide-banner-block', false ),
+				'content-grid' => areoi2_get_option( 'areoi-dashboard-global-hide-content-grid-block', false ),
+				'post-grid' => areoi2_get_option( 'areoi-dashboard-global-hide-post-grid-block', false ),
+				'content-with-media' => areoi2_get_option( 'areoi-dashboard-global-hide-content-with-media-block', false ),
+				'media-grid' => areoi2_get_option( 'areoi-dashboard-global-hide-media-grid-block', false ),
+			),
 		) );
 
 		wp_set_script_translations( 'areoi-blocks', AREOI__TEXT_DOMAIN );
@@ -94,7 +126,7 @@ class AREOI_Styles
 		}
 		if ( areoi2_get_option( 'areoi-dashboard-global-bootstrap-icon-css', 1 ) ) {
 			$css_enqueues = array(
-	    		'areoi-bootstrap-icons' 	=> 'src/bootstrap-icons-1.10.2/bootstrap-icons.min.css',
+	    		'areoi-bootstrap-icons' 	=> 'src/bootstrap-icons-1.11.3/bootstrap-icons.min.css',
 	    	);
 	    	areoi_enqueue_css( $css_enqueues );
 		}
@@ -136,7 +168,7 @@ class AREOI_Styles
 
 	    	if ( in_array( $block['blockName'], array( 'areoi/button', 'areoi/icon' ) ) ) {
 	    		$css_enqueues = array(
-		    		'areoi-bootstrap-icons' 	=> 'src/bootstrap-icons-1.10.2/bootstrap-icons.min.css',
+		    		'areoi-bootstrap-icons' 	=> 'src/bootstrap-icons-1.11.3/bootstrap-icons.min.css',
 		    	);
 		    	areoi_enqueue_css( $css_enqueues );
 	    	}
@@ -275,6 +307,9 @@ class AREOI_Styles
 
 	public static function add_block_style( $blocks, $device_key )
 	{	
+		$is_cssgrid = areoi2_get_option( 'areoi-customize-options-enable-cssgrid', false );
+		$display_units = areoi2_get_option( 'areoi-dashboard-global-display-units', 'px' );
+
 		$styles = '';
 		if ( !empty( $blocks ) ) {
 			foreach ( $blocks as $block_key => $block ) {
@@ -290,7 +325,7 @@ class AREOI_Styles
 						$value = ( isset( $attributes[$attr_key] ) ? $attributes[$attr_key] : null );
 
 						if ( $value !== null && $value !== '' ) {
-							$inner_styles .= $pad_mar . '-' . $dir . ': ' . $attributes[$attr_key] . areoi2_get_option( 'areoi-dashboard-global-display-units', 'px' ) . ';';
+							$inner_styles .= $pad_mar . '-' . $dir . ': ' . $attributes[$attr_key] . $display_units . ';';
 						}
 					}
 				}
@@ -301,7 +336,7 @@ class AREOI_Styles
 				    $styles .= '}';
 				}
 
-				if ( areoi2_get_option( 'areoi-customize-options-enable-cssgrid', false ) ) {
+				if ( $is_cssgrid ) {
 					
 					if ( $block['blockName'] == 'areoi/row' ) {
 

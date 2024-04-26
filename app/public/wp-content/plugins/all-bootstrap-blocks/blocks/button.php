@@ -80,6 +80,11 @@ function areoi_render_block_button( $attributes, $content )
 		$button_open .= ' data-bs-toggle="dropdown"';
 		$button_open .= ' data-bs-auto-close="' . $attributes['dropdown_auto_close'] . '"';
 	}
+
+	if ( !empty( $attributes['url'] ) && !empty( $attributes['link_to_modal'] ) && !areoi2_get_option( 'areoi-dashboard-global-bootstrap-js', 1 ) ) {
+		$button_open .= ' data-bs-toggle="modal"';
+		$button_open .= ' data-bs-target="' . $attributes['url'] . '"';
+	}
 	$button_open .= ' ' . $tooltip . '>';
 
 	$output = '';

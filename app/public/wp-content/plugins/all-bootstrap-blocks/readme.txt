@@ -2,9 +2,9 @@
 Contributors: areoimiles
 Tags: Bootstrap, Bootstrap Blocks, Bootstrap 5, Gutenberg, Gutenberg Blocks, Blocks, Layout Blocks
 Requires at least: 5
-Tested up to: 6.4
+Tested up to: 6.5
 Requires PHP: 7
-Stable tag: 1.3.14
+Stable tag: 1.3.16
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -108,6 +108,18 @@ Bootstrap is included. However you have the ability to switch this off in your W
 
 == Changelog ==
 
+
+= 1.3.16 =
+* FIX: https://wordpress.org/support/topic/twitter-x-2/
+* FIX: https://wordpress.org/support/topic/inspiro-theme-header-menu-conflic/
+* FIX: Vulnerability fix reported by patchstack
+* FIX: https://wordpress.org/support/topic/excessive-get_option-calls/
+
+= 1.3.15 =
+* FIX: https://wordpress.org/support/topic/status-of-bootstrap-5-3-support-and-enable-cssgrid/
+* Feature: Allowed blocks to be excluded https://wordpress.org/support/topic/deactivating-bootstrap-files-and-changing-block-templates/
+* FIX: https://wordpress.org/support/topic/breadcrumb-first-crumb-is-always-home/
+* FIX: https://wordpress.org/support/topic/aria-expanded-attribute-on-accordion-items-should-not-be-hard-coded/
 
 = 1.3.14 =
 * FEATURE: Added Bootstrap 5.3.3

@@ -124,7 +124,7 @@ function areoi_get_rgba_str( $rgba )
 	return trim( 'rgba(' . $rgba['r'] . ', ' . $rgba['g'] . ', ' . $rgba['b'] . ',' . $rgba['a'] . ')' );
 }
 
-function areoi_generate_breadcrumbs() 
+function areoi_generate_breadcrumbs( $attributes = array() ) 
 {
 	global $post,$wp_query;
 
@@ -132,9 +132,15 @@ function areoi_generate_breadcrumbs()
 	if ( $post->post_parent ) {
 		$breadcrumbs = areoi_generate_breadcrumbs_parent( $breadcrumbs, $post->post_parent );
 
+		$title = __( 'Home', AREOI__TEXT_DOMAIN );
+		$front_page_id = (int) get_option( 'page_on_front' );
+		if ( $front_page_id > 0 && !empty( $attributes['is_front_page'] ) ) {
+			$title = get_the_title( $front_page_id );
+		}
+
 		$breadcrumbs[] = array(
 			'permalink' => home_url(),
-			'label'		=> 'Home',
+			'label'		=> $title,
 			'active'	=> false
 		);
 	}
@@ -404,7 +410,13 @@ function areoi_get_prepend_content( $attributes )
 
 	if ( !empty( $attributes['prepend_display_heading'] ) || !empty( $attributes['prepend_display_intro'] ) ) {
 
-		$prepend_heading = !empty( $attributes['prepend_display_heading'] ) && !empty( $attributes['prepend_heading'] ) ? '<' . $attributes['prepend_heading_level'] . ' class="' . $heading_color . '">' . $attributes['prepend_heading'] . '</' . $attributes['prepend_heading_level'] . '>' : '';
+		$heading_level = $attributes['prepend_heading_level'];
+
+		if ( !in_array( $heading_level, ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] ) ) {
+			$heading_level = 'h2';
+		}
+
+		$prepend_heading = !empty( $attributes['prepend_display_heading'] ) && !empty( $attributes['prepend_heading'] ) ? '<' . $heading_level . ' class="' . $heading_color . '">' . $attributes['prepend_heading'] . '</' . $heading_level . '>' : '';
 		$prepend_intro = !empty( $attributes['prepend_intro'] ) && !empty( $attributes['prepend_intro'] ) ? '<p class="' . $intro_color . '">' . $attributes['prepend_intro'] . '</p>' : '';
 
 		$prepend .= '

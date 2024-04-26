@@ -1,7 +1,7 @@
 <?php
 function areoi_render_block_breadcrumb( $attributes, $content ) 
 {
-	$breadcrumbs = areoi_generate_breadcrumbs();
+	$breadcrumbs = areoi_generate_breadcrumbs( $attributes );
 
 	$class 			= 	trim( 
 		areoi_get_class_name_str( array( 
@@ -18,7 +18,7 @@ function areoi_render_block_breadcrumb( $attributes, $content )
 	if ( !empty( $breadcrumbs ) ) {
 		foreach ( $breadcrumbs as $breadcrumb_key => $breadcrumb ) {
 			if ( $breadcrumb['active'] ) {
-				$list .= '<li class="breadcrumb-item active">' . $breadcrumb['label'] . '</li>';
+				$list .= '<li class="breadcrumb-item active" aria-current="page">' . $breadcrumb['label'] . '</li>';
 			} else {
 				$list .= '<li class="breadcrumb-item"><a href="' . $breadcrumb['permalink'] . '">' . $breadcrumb['label'] . '</a></li>';
 			}

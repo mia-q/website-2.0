@@ -59,6 +59,15 @@ areoi.blocks.registerBlockType( meta, {
                                     />
                                 </areoi.components.PanelRow>
 
+                                <areoi.components.PanelRow>
+                                    <areoi.components.ToggleControl
+                                        label="Use Front Page Title"
+                                        help="If checked the title of the front page will be used in place of Home."
+                                        checked={ attributes.is_front_page }
+                                        onChange={ ( value ) => onChange( 'is_front_page', value ) }
+                                    />
+                                </areoi.components.PanelRow>
+
                             </areoi.components.PanelBody>
 
                             { areoi.ResponsiveTabPanel( tabDevice, meta, props ) }
@@ -67,7 +76,7 @@ areoi.blocks.registerBlockType( meta, {
 
                        
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">{ attributes['is_front_page'] ? 'Front Page Title' : 'Home' }</a></li>
                             <li class="breadcrumb-item active">About</li>
                         </ol>
         

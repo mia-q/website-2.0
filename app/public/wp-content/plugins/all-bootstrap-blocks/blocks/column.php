@@ -1,7 +1,9 @@
 <?php
-function areoi_render_block_column( $attributes, $content ) 
+function areoi_render_block_column( $attributes, $content, $block ) 
 {
 	$is_grid = areoi2_get_option( 'areoi-customize-options-enable-cssgrid', false );
+
+	if ( !empty( $block->context['areoi/isFlex'] ) ) $is_grid = false;
 
 	$class 			= 	trim( 
 		areoi_get_class_name_str( array( 

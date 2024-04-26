@@ -7,6 +7,9 @@
 	"description": "Rows are wrappers for columns. Each column has horizontal padding (called a gutter) for controlling the space between them. This padding is then counteracted on the rows.",
 	"textdomain": "default",
 	"keywords": [ "areoi", "bootstrap", "layout" ],
+	"providesContext": {
+		"areoi/isFlex": "is_flex"
+	},
 	"example": {
 		"attributes": {
 			"preview": true
@@ -24,6 +27,10 @@
 		"block_id": {
 			"type": "string",
 			"default": null
+		},
+		"is_flex": {
+			"type": "boolean",
+			"default": false
 		},
 		"vertical_align_xs": {
 			"type": "string",

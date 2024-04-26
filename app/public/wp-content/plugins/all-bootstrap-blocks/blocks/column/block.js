@@ -17,13 +17,16 @@ areoi.blocks.registerBlockType( meta, {
             isSelected,
             onReplace,
             mergeBlocks,
-            clientId
+            clientId,
+            context
         } = props;
 
         const { block_id } = attributes;
         if ( !block_id ) {
             setAttributes( { block_id: clientId } );
         }
+
+        const isFlex = context['areoi/isFlex']
 
         const classes = [
             'col',
@@ -94,7 +97,7 @@ areoi.blocks.registerBlockType( meta, {
 
         const ref = areoi.element.useRef();
         const richTextRef = areoi.element.useRef();
-        let classArr = areoi.helper.GetClassNameCol( areoi.helper.GetClassName( classes ) );
+        let classArr = areoi.helper.GetClassNameCol( areoi.helper.GetClassName( classes ), isFlex );
 
         const blockProps = areoi.editor.useBlockProps( {
             ref,
@@ -117,7 +120,7 @@ areoi.blocks.registerBlockType( meta, {
                         <areoi.components.PanelBody title={ 'Settings (' + tab.title + ')' } initialOpen={ false }>
                             
                             {
-                                !areoi_vars.is_grid &&
+                                (!areoi_vars.is_grid || isFlex) &&
                                 <>
                                 <areoi.components.PanelRow className="areoi-panel-row">
                                     <areoi.components.SelectControl
@@ -171,7 +174,7 @@ areoi.blocks.registerBlockType( meta, {
                             </areoi.components.PanelRow>
 
                             {
-                                areoi_vars.is_grid &&
+                                areoi_vars.is_grid && !isFlex &&
 
                                 <areoi.components.PanelRow>
                                     <areoi.components.TextControl

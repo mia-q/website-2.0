@@ -29,6 +29,10 @@
 			"type": "string",
 			"default": "/"
 		},
+		"is_front_page": {
+			"type": "boolean",
+			"default": false
+		},
 
 		"hide_xs": {
 			"type": "boolean",

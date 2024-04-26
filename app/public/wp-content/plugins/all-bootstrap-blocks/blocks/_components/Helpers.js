@@ -8,12 +8,12 @@ export const GetClassName = ( classes ) => {
     return newClasses;
 }
 
-export const GetClassNameCol = ( classes ) => {
+export const GetClassNameCol = ( classes, isFlex ) => {
     let newClasses = [];
     classes.forEach(element => {
         if ( typeof element !== 'undefined' && element ) {
-            
-            if ( areoi_vars.is_grid ) {
+            console.log(isFlex)
+            if ( areoi_vars.is_grid && !isFlex ) {
                 element = element.replace("col-", 'g-col-');
                 element = element.replace("offset-", 'g-start-');
             }
@@ -54,7 +54,7 @@ export const GetStyles = ( attributes ) => {
         if ( areoi_vars.is_grid ) {
             styles += ( attributes['grid_rows_' + device] ? '--bs-rows: ' + attributes['grid_rows_' + device] + ';' : '' );
 
-            if ( attributes['row_cols_' + device] ) {
+            if ( attributes['row_cols_' + device] && attributes['row_cols_' + device] != 'Default' ) {
                 var cols = attributes['row_cols_' + device].match(/\d+$/)[0];
                 if ( cols ) {
                     styles += '--bs-columns: ' + cols + ';';

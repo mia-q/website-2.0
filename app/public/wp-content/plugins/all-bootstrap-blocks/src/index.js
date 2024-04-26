@@ -60,4 +60,11 @@ wp.domReady( () => {
 		wp.blocks.unregisterBlockType( 'core/columns' );
 		wp.blocks.unregisterBlockType( 'core/column' );
 	}	
+	if ( areoi_vars.block_excludes ) {
+		for ( const [key, value] of Object.entries( areoi_vars.block_excludes ) ) {
+			if ( value ) {
+				wp.blocks.unregisterBlockType( 'areoi/' + key );
+			}
+		}
+	}
 } );
