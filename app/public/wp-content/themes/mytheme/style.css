@@ -6,15 +6,22 @@ Description: This is my website theme.
 Version: 0
 
 */
+
 * {
     background-color: #f5f5f5;
 }
+
 body {
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
 }
 
+header {
+    margin: 0;
+}
+
+/* fonts */
 .italiana-regular {
     font-family: "Italiana", sans-serif;
     font-weight: 400;
@@ -30,9 +37,9 @@ body {
   font-style: normal;
 }
 
-header {
-    margin: 0;
-}
+
+
+/* home page */
 
 .banner {
     width: 100%;
@@ -58,39 +65,68 @@ header {
     font-size: 18px;
     background: none;
 }
+
+#profile-picture {
+    width: 250px;
+    justify-content: center;
+}
+
+
 .gallery {
     display: flex;
     flex-direction: column;
-
 }
-
-.caption {
-    background: none;
-    font-size: 18px;
-    color: #f5f5f5;
-}
-
-/*need some changes here */
-/* .caption:hover {
-    visibility: visible;
-    filter: brightness(100%);
-    z-index: 1;
-} */
 
 .gallery-item {
     background-size: cover;
     height: 550px;
+    display: flex;
     align-items: flex-end;
-    
+    padding: 0px;
 }
 
-.gallery-item:hover {
-    filter: brightness(60%);
+.caption {
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 18px;
+    color: #f5f5f5;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s;
 }
+
+.caption:hover {
+    opacity: 1;
+}
+
+.caption p {
+    background: none;
+}
+
+.caption a {
+    background: none;
+    color:#5dc5cc
+}
+
+#latest-project {
+    margin-top: 100px;
+}
+
+.mt {
+ padding-top: 20px;
+}
+
+/* footer and nav-link styles */
 
 footer {
  color: #000000;
  margin: 0%;
+ margin-top: 100px;
 }
 
 ul {
@@ -100,12 +136,6 @@ ul {
 li {
     margin: 0px;
     padding: 5px;
-}
-.hero {
-    background: none;
-}
-#main-title {
-    color:#f5f5f5;
 }
 
 .btn-mine {
@@ -118,22 +148,6 @@ li {
 
 }
 
-#profile-picture {
-    width: 250px;
-    justify-content: center;
-}
-
-.subtitle {
-    margin-bottom: 0px;
-}
-
-.center {
-    text-align: center;
-}
-.right {
-    text-align: right;
-}
-
 a {
     text-decoration: none;
     font-weight: bold;
@@ -141,13 +155,9 @@ a {
     font-family: "Italiana", sans-serif;
 }
 
-#latest-project {
-    margin-top: 100px;
-}
 
-footer {
-    margin-top: 100px;
-}
+
+/*classes for WP */
 
 .margin-body {
     margin: 10px 25%;
@@ -161,4 +171,11 @@ footer {
 
 .padding-body {
     padding: 20px 0px;
+}
+
+.center {
+    text-align: center;
+}
+.right {
+    text-align: right;
 }
